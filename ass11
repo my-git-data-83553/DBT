@@ -1,0 +1,40 @@
+que1) 
+ans
+
+kd4_snehal_83553>select * from ORDERS where Cnum=(Select Cnum from CUSTOMERS where Cname='Cisneros');
++------+---------+------------+------+------+
+| Onum | Amt     | Odate      | Cnum | Snum |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1990-10-03 | 2008 | 1007 |
+| 3006 | 1098.16 | 1990-10-03 | 2008 | 1007 |
++------+---------+------------+------+------+
+2 rows in set (0.00 sec)
+
+
+que2) 
+ans
+
+kd4_snehal_83553>select Cname,Rating from CUSTOMERS where CUSTOMERS.Rating>(select avg(rating) from CUSTOMERS);
++----------+--------+
+| Cname    | Rating |
++----------+--------+
+| Giovanni |    200 |
+| Liu      |    200 |
+| Grass    |    300 |
+| Cisneros |    300 |
++----------+--------+
+4 rows in set (0.00 sec)
+
+
+que3)
+ans
+
+kd4_snehal_83553>SELECT MAX(Amt), SUM(Amt) AS total_amount FROM ORDERS GROUP BY Snum HAVING SUM(amt) > (SELECT MAX(amt) FROM ORDERS);
++----------+--------------+
+| MAX(Amt) | total_amount |
++----------+--------------+
+|  9891.88 |     15382.07 |
++----------+--------------+
+1 row in set (0.00 sec)
+
+
