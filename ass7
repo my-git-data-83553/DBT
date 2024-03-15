@@ -1,0 +1,86 @@
+que1)
+ans
+kd4_snehal_83553>select count(*) from ORDERS where odate='1990-10-03';
++----------+
+| count(*) |
++----------+
+|        5 |
++----------+
+1 row in set (0.00 sec)
+
+
+que2)
+ans 
+kd4_snehal_83553>select count(*) from CUSTOMERS where city is not null;
++----------+
+| count(*) |
++----------+
+|        7 |
++----------+
+1 row in set (0.00 sec)
+
+
+que3)
+ans
+kd4_snehal_83553>select cnum,min(Amt) 'SMALLEST ORDERS' from ORDERS group by cnum;
++------+-----------------+
+| cnum | SMALLEST ORDERS |
++------+-----------------+
+| 2008 |           18.69 |
+| 2001 |          767.19 |
+| 2007 |         1900.10 |
+| 2003 |         5160.45 |
+| 2002 |         1713.23 |
+| 2004 |           75.75 |
+| 2006 |         4723.00 |
++------+-----------------+
+7 rows in set (0.00 sec)
+
+
+que4)
+ans
+kd4_snehal_83553>select * from CUSTOMERS where cname like 'g%';
++------+----------+--------+--------+------+
+| cnum | cname    | city   | rating | snum |
++------+----------+--------+--------+------+
+| 2002 | giovanni | rome   |    200 | 1003 |
+| 2004 | grass    | berlin |    300 | 1002 |
++------+----------+--------+--------+------+
+2 rows in set (0.00 sec)
+
+que5)
+ans
+kd4_snehal_83553>select cnum,max(Amt) 'HIGHEST ORDERS' from ORDERS group by cnum;
++------+----------------+
+| cnum | HIGHEST ORDERS |
++------+----------------+
+| 2008 |        1098.16 |
+| 2001 |         767.19 |
+| 2007 |        1900.10 |
+| 2003 |        5160.45 |
+| 2002 |        1713.23 |
+| 2004 |        1309.95 |
+| 2006 |        9891.88 |
++------+----------------+
+7 rows in set (0.00 sec)
+
+
+
+que6)
+ans
+kd4_snehal_83553>select count(distinct snum) 'NO. SALESPEOPLE REGISTER',Odate from ORDERS group by Odate;
++--------------------------+------------+
+| NO. SALESPEOPLE REGISTER | Odate      |
++--------------------------+------------+
+|                        4 | 1990-10-03 |
+|                        2 | 1990-10-04 |
+|                        1 | 1990-10-05 |
+|                        2 | 1990-10-06 |
++--------------------------+------------+
+
+
+
+
+
+
+
