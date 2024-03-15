@@ -1,0 +1,26 @@
+que1)
+ans
+kd4_snehal_83553>SELECT DISTINCT SP1.snum AS snum1, SP1.sname AS sname1, SP1.city AS city, SP2.snum AS snum2, SP2.sname AS sname2 FROM SALESPEOPLE SP1 JOIN SALESPEOPLE SP2 ON SP1.city = SP2.city WHERE SP1.snum < SP2.snum;
++-------+--------+--------+-------+--------+
+| snum1 | sname1 | city   | snum2 | sname2 |
++-------+--------+--------+-------+--------+
+|  1001 | Peel   | London |  1004 | Motika |
++-------+--------+--------+-------+--------+
+1 row in set (0.02 sec)
+
+
+
+que2)
+ans
+
+kd4_snehal_83553>SELECT C1.cname AS customer_name, C1.city FROM CUSTOMERS C1 JOIN CUSTOMERS C2 ON C1.rating = C2.rating WHERE C2.cname = 'Hoffman';
++---------------+--------+
+| customer_name | city   |
++---------------+--------+
+| Hoffman       | London |
+| Clemens       | London |
+| Pereira       | Rome   |
++---------------+--------+
+3 rows in set (0.02 sec)
+
+
