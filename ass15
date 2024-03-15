@@ -1,0 +1,79 @@
+que1)
+ans
+
+kd4_snehal_83553>select * from CUSTOMERS;
++------+----------+----------+--------+------+
+| cnum | cname    | city     | rating | snum |
++------+----------+----------+--------+------+
+| 2001 | hoffman  | london   |    100 | 1001 |
+| 2002 | giovanni | rome     |    200 | 1003 |
+| 2003 | liu      | san jose |    200 | 1002 |
+| 2004 | grass    | berlin   |    300 | 1002 |
+| 2006 | clemens  | landon   |    100 | 1001 |
+| 2008 | cisneros | san jose |    300 | 1007 |
+| 2007 | pereira  | rome     |    100 | 1004 |
++------+----------+----------+--------+------+
+7 rows in set (0.07 sec)
+
+kd4_snehal_83553>select * from SALESPEOPLE;
++------+---------+-----------+------+
+| Snum | Sname   | City      | Comm |
++------+---------+-----------+------+
+| 1001 | Peel    | London    | 0.12 |
+| 1002 | Serres  | San Jose  | 0.13 |
+| 1004 | Motika  | London    | 0.11 |
+| 1007 | Rifkin  | Barcelona | 0.15 |
+| 1003 | Axelrod | New York  | 0.10 |
++------+---------+-----------+------+
+5 rows in set (0.00 sec)
+
+kd4_snehal_83553>create table multicust as select * from SALESPEOPLE where Snum=a
+ny(select Snum from CUSTOMERS group by Snum having count(Snum)>1);
+Query OK, 2 rows affected, 1 warning (0.02 sec)
+Records: 2  Duplicates: 0  Warnings: 1
+
+kd4_snehal_83553>select * from multicust;
++------+--------+----------+------+
+| Snum | Sname  | City     | Comm |
++------+--------+----------+------+
+| 1001 | Peel   | London   | 0.12 |
+| 1002 | Serres | San Jose | 0.13 |
++------+--------+----------+------+
+2 rows in set (0.00 sec)
+
+que2)
+ans
+kd4_snehal_83553>delete from CUSTOMERS where Cnum NOT IN(Select xyz.Cnum from (select c1.Cnum from CUSTOMERS c1,ORDERS o1 where c1.Cnum=o1.Cnum)as xyz);
+Query OK, 0 rows affected (0.00 sec)
+
+KD4_Jyoti_83551>select * from CUSTOMERS;
++------+----------+----------+--------+------+
+| Cnum | Cname    | City     | Rating | Snum |
++------+----------+----------+--------+------+
+| 2001 | Hoffman  | London   |    100 | 1001 |
+| 2002 | Giovanni | Rome     |    200 | 1003 |
+| 2003 | Liu      | San Jose |    200 | 1002 |
+| 2004 | Grass    | Berlin   |    300 | 1002 |
+| 2006 | Clemens  | London   |    100 | 1001 |
+| 2008 | Cisneros | San Jose |    300 | 1007 |
+| 2007 | Pereira  | Rome     |    100 | 1004 |
++------+----------+----------+--------+------+
+7 rows in set (0.00 sec)
+
+
+que3)
+ans
+kd4_snehal_83553>update SALESPEOPLE set Comm=Comm+0.2 where Snum=(select distinct Snum from ORDERS where Amt>3000);
+Query OK, 0 rows affected (0.00 sec)
+
+KD4_Jyoti_83551>select * from SALESPEOPLE;
++------+---------+-----------+------+
+| Snum | Sname   | City      | Comm |
++------+---------+-----------+------+
+| 1001 | Peel    | London    | 0.32 |
+| 1002 | Serres  | San Jose  | 0.33 |
+| 1004 | Motika  | London    | 0.31 |
+| 1007 | Rifkin  | Barcelona | 0.35 |
+| 1003 | Axelrod | New York  | 0.30 |
++------+---------+-----------+------+
+5 rows in set (0.00 sec)
