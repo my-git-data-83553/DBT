@@ -1,0 +1,17 @@
+
+que1)  WHICH FIELD OF THE CUSTOMERS TABLE IS THE PRIMARY KEY?
+ans   "CNUM" of the Customer table is the Primary key.
+
+
+que2) WHAT IS THE 4TH COLUMN OF THE CUSTOMERS TABLE?
+ans   "RATING" is the 4th column of the Customers table.
+
+
+que3) WHAT IS ANOTHER WORD FOR ROW? FOR COLUMN?
+ans   Another Word for "ROW" is "TUPLES" and "COLUMN" is "ATTRIBUTES"
+
+
+
+que4) WHY ISN'T IT POSSIBLE TO SEE THE FIRST FIVE ROWS OF A TABLE?
+ans   Because, the rows inside a table are scattered (Fragmented) all over the DB server Hard Disk.
+
