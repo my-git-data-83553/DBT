@@ -1,0 +1,82 @@
+que1)
+ans
+kd4_snehal_83553>select Onum,cname from ORDERS,CUSTOMERS where ORDERS.cnum=CUSTOMERS.cnum;
++------+----------+
+| Onum | cname    |
++------+----------+
+| 3001 | cisneros |
+| 3003 | hoffman  |
+| 3002 | pereira  |
+| 3005 | liu      |
+| 3006 | cisneros |
+| 3009 | giovanni |
+| 3007 | grass    |
+| 3008 | clemens  |
+| 3010 | grass    |
+| 3011 | clemens  |
++------+----------+
+10 rows in set (0.00 sec)
+
+
+que2)
+ans
+kd4_snehal_83553>select sname,cname,Onum from SALESPEOPLE,CUSTOMERS,ORDERS where SALESPEOPLE.snum=CUSTOMERS.snum and CUSTOMERS.snum=ORDERS.snum;
++---------+----------+------+
+| sname   | cname    | Onum |
++---------+----------+------+
+| Rifkin  | cisneros | 3001 |
+| Peel    | clemens  | 3003 |
+| Peel    | hoffman  | 3003 |
+| Motika  | pereira  | 3002 |
+| Serres  | grass    | 3005 |
+| Serres  | liu      | 3005 |
+| Rifkin  | cisneros | 3006 |
+| Axelrod | giovanni | 3009 |
+| Serres  | grass    | 3007 |
+| Serres  | liu      | 3007 |
+| Peel    | clemens  | 3008 |
+| Peel    | hoffman  | 3008 |
+| Serres  | grass    | 3010 |
+| Serres  | liu      | 3010 |
+| Peel    | clemens  | 3011 |
+| Peel    | hoffman  | 3011 |
++---------+----------+------+
+16 rows in set (0.00 sec)
+
+
+que3)
+ans
+kd4_snehal_83553>select cname,SALESPEOPLE.sname,Comm*100 'rate of commission' from CUSTOMERS,SALESPEOPLE where CUSTOMERS.snum=SALESPEOPLE.snum and comm>0.12;
++----------+--------+--------------------+
+| cname    | sname  | rate of commission |
++----------+--------+--------------------+
+| liu      | Serres |              13.00 |
+| grass    | Serres |              13.00 |
+| cisneros | Rifkin |              15.00 |
++----------+--------+--------------------+
+3 rows in set (0.00 sec)
+
+
+
+que4)
+ans
+kd4_snehal_83553>select Sname,cname,rating,comm*amt "Commission" from ORDERS,CUSTOMERS,SALESPEOPLE where ORDERS.cnum=CUSTOMERS.cnum and ORDERS.snum=SALESPEOPLE.snum having rating > 100 order by onum;
++---------+----------+--------+------------+
+| Sname   | cname    | rating | Commission |
++---------+----------+--------+------------+
+| Rifkin  | cisneros |    300 |       2.80 |
+| Serres  | liu      |    200 |     670.86 |
+| Rifkin  | cisneros |    300 |     164.72 |
+| Serres  | grass    |    300 |       9.85 |
+| Axelrod | giovanni |    200 |     171.32 |
+| Serres  | grass    |    300 |     170.29 |
++---------+----------+--------+------------+
+6 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
