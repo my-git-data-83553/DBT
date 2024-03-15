@@ -1,0 +1,65 @@
+que1)
+ans 
+kd4_snehal_83553>select Onum,snum,amt*0.12 from ORDERS;
++------+------+----------+
+| Onum | snum | amt*0.12 |
++------+------+----------+
+| 3001 | 1007 |     2.24 |
+| 3003 | 1001 |    92.06 |
+| 3002 | 1004 |   228.01 |
+| 3005 | 1002 |   619.25 |
+| 3006 | 1007 |   131.78 |
+| 3009 | 1003 |   205.59 |
+| 3007 | 1002 |     9.09 |
+| 3008 | 1001 |   566.76 |
+| 3010 | 1002 |   157.19 |
+| 3011 | 1001 |  1187.03 |
++------+------+----------+
+10 rows in set (0.00 sec)
+
+
+que2)
+ans
+kd4_snehal_83553>select City,max(Rating) as "The Highest rating is:" from CUSTOMERS group by 1;
++----------+------------------------+
+| City     | The Highest rating is: |
++----------+------------------------+
+| London   |                    100 |
+| Rome     |                    200 |
+| San Jose |                    300 |
+| Berlin   |                    300 |
++----------+------------------------+
+5 rows in set (0.00 sec)
+
+
+que3)
+ans
+kd4_snehal_83553>select rating,cname,cnum from CUSTOMERS order by rating desc;
++--------+----------+------+
+| rating | cname    | cnum |
++--------+----------+------+
+|    300 | grass    | 2004 |
+|    300 | cisneros | 2008 |
+|    200 | giovanni | 2002 |
+|    200 | liu      | 2003 |
+|    100 | hoffman  | 2001 |
+|    100 | clemens  | 2006 |
+|    100 | pereira  | 2007 |
++--------+----------+------+
+7 rows in set (0.00 sec)
+
+
+que4)
+ans 
+kd4_snehal_83553>select odate,count(odate) 'TOTAL ORDERS' from ORDERS group by odate order by 1 desc;
++------------+--------------+
+| odate      | TOTAL ORDERS |
++------------+--------------+
+| 1990-10-06 |            2 |
+| 1990-10-05 |            1 |
+| 1990-10-04 |            2 |
+| 1990-10-03 |            5 |
++------------+--------------+
+4 rows in set (0.01 sec)
+
+
